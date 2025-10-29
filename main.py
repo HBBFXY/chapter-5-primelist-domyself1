@@ -8,17 +8,16 @@ def PrimeList(N):
     if N <= 2:
         return ""
     
-    # 处理负数输入
-    if N < 0:
-        N = -N
-    
     # 使用埃拉托斯特尼筛法
     sieve = [True] * N
-    sieve[0] = sieve[1] = False  # 0和1不是质数
+    sieve[0] = False  # 0不是质数
+    if N > 1:
+        sieve[1] = False  # 1不是质数
     
     # 筛法核心算法
     for i in range(2, int(N**0.5) + 1):
         if sieve[i]:
+            # 从i*i开始标记非质数
             for j in range(i*i, N, i):
                 sieve[j] = False
     
@@ -34,11 +33,8 @@ def PrimeList(N):
 # 添加输入输出部分以满足交互需求
 if __name__ == "__main__":
     try:
-        n = int(input("请输入一个整数N: "))
+        n = int(input())
         result = PrimeList(n)
-        if result:
-            print(f"小于{n}的所有质数为: {result}")
-        else:
-            print(f"小于{n}的质数不存在")
-    except ValueError:
-        print("输入错误，请输入一个整数")
+        print(result)
+    except:
+        print("")
