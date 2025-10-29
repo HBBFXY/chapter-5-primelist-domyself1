@@ -29,4 +29,3 @@ def PrimeList(N):
     
     # 以空格连接，确保末尾无空格
     return " ".join(primes)
-print(PrimeList(10)) 
