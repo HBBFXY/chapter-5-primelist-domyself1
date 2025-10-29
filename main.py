@@ -29,12 +29,4 @@ def PrimeList(N):
     
     # 以空格连接，确保末尾无空格
     return " ".join(primes)
-
-# 添加输入输出部分以满足交互需求
-if __name__ == "__main__":
-    try:
-        n = int(input())
-        result = PrimeList(n)
-        print(result)
-    except:
-        print("")
+print(PrimeList(10)) 
